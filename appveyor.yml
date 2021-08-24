@@ -1,4 +1,4 @@
-version: 1.3.7
+version: 1.3.8
 
 artifacts:
   - path: hello-appveyor.zip
@@ -32,7 +32,7 @@ test_script:
   - cd ..
   - echo APPVEYOR_JOB_ID %APPVEYOR_JOB_ID%
   - tests\release\tests -xunitxml > tests.xml
-  - curl -X POST -F data=@tests.xml https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
+  - curl -F data=@tests.xml https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
 
 deploy:
   description: 'hello-appveyor'
