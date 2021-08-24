@@ -1,4 +1,4 @@
-version: 1.2.7
+version: 1.2.9
 
 artifacts:
   - path: hello-appveyor.zip
@@ -21,6 +21,8 @@ build_script:
   - jom clean > nul 2>&1
   - windeployqt release\hello-appveyor.exe > deploy.log 2>&1
   - 7z a hello-appveyor.zip release > zip.log 2>&1
+  - set
+  - where curl
 
 test_script:
   - rem appveyor AddTest -Name "Test A" -Framework NUnit -Filename a.exe -Outcome Passed -Duration 1000
