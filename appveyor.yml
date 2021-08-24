@@ -1,4 +1,4 @@
-version: 1.2.6
+version: 1.2.7
 
 artifacts:
   - path: hello-appveyor.zip
@@ -28,7 +28,7 @@ test_script:
   - qmake >> ..\build_tests.log 2>&1
   - jom release >> ..\build_tests.log 2>&1
   - cd ..
-  - powershell tests.ps
+  - powershell -file .\tests.ps1
 
 deploy:
   description: 'hello-appveyor'
