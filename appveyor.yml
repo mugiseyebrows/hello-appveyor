@@ -1,3 +1,7 @@
+environment:
+  my_variable:
+    secure: tQDHkd0GxoshtqheKEM/ig==
+
 artifacts:
   - path: hello-appveyor.zip
     name: hello-appveyor
@@ -9,15 +13,11 @@ branches:
     - master
 
 build_script:
+  - echo and secret is $(tQDHkd0GxoshtqheKEM/ig==)
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
-  - qmake > qmake.log 2>&1
-  - jom release > build.log 2>&1
+  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH% > nul 2>&1
+  - qmake > build_qmake.log 2>&1
+  - jom release > build_jom.log 2>&1
   - jom clean > nul 2>&1
-  - windeployqt release\hello-appveyor.exe > windeploy.log 2>&1
+  - windeployqt release\hello-appveyor.exe > deploy.log 2>&1
   - 7z a hello-appveyor.zip release > zip.log 2>&1
-  - dir %CD%
-  
-
-  
-  
