@@ -28,8 +28,7 @@ test_script:
   - qmake >> ..\build_tests.log 2>&1
   - jom release >> ..\build_tests.log 2>&1
   - cd ..
-  - tests\release\tests -xunitxml > tests.xml || echo ok
-  - curl -F data=@tests.xml https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
+  - tests\release\tests -xunitxml > tests.xml && curl -F data=@tests.xml https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
 
 deploy:
   description: 'hello-appveyor'
