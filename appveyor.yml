@@ -22,9 +22,9 @@ build_script:
 
 test_script:
   - cd tests
-  - qmake >> ..\tests.log 2>&1
-  - jom release >> ..\tests.log 2>&1
-  - release\tests.exe >> ..\tests.log 2>&1
+  - qmake >> ..\build_tests.log 2>&1
+  - jom release >> ..\build_tests.log 2>&1
+  - release\tests.exe >> ..\run_tests.log 2>&1
 
 deploy:
   description: 'hello-appveyor'
