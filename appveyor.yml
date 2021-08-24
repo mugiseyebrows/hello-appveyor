@@ -3,10 +3,9 @@ branches:
     - master
 
 build_script:
-  - set
-  - where jom
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - where msbuild
   - where qmake
-  - set QTDIR=C:\Qt\5.15.2\msvc2019
   - qmake 
   - jom release
   
