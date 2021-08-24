@@ -16,17 +16,15 @@ with open(args.log, 'wb') as f:
     f.write(stdout)
     f.write(stderr)
 
-#print('stdout',stdout)
-#print('stderr',stderr)
-#print('returncode', proc.returncode)
-
 basename = os.path.basename(args.bin)
+
+# https://www.appveyor.com/docs/build-worker-api/
 
 for line in stdout.decode('utf-8').split('\n'):
     if line.startswith('PASS') or line.startswith('FAIL'):
         stat, name = line.split(":", 1)
         fail = line.startswith('FAIL')
         status = "Passed" if not fail else "Failed"
-        sp.run(["appveyor", "AddTest", "-Name", name, "-Framework", "NUnit", "-Filename", basename, "-Outcome", status, "-Duration", "0"])
+        sp.run(["appveyor", "AddTest", "-Name", name, "-Framework", "NUnit", "-Filename", args.bin, "-Outcome", status])
 
 exit(proc.returncode)
