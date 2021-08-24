@@ -28,7 +28,7 @@ test_script:
   - qmake >> ..\build_tests.log 2>&1
   - jom release >> ..\build_tests.log 2>&1
   - cd ..
-  - python tests.py tests\release\tests.exe tests.log
+  - ps tests.ps
 
 deploy:
   description: 'hello-appveyor'
