@@ -17,7 +17,7 @@ build_script:
   - cd tests
   - qmake >> build_log.log 2>&1
   - jom release >> build_log.log 2>&1
-  - release\tests.exe > tests.log 2>&1
+  - release\tests.exe > ..\tests.log 2>&1
   - cd ..
   - qmake > build_qmake.log 2>&1
   - jom release > build_jom.log 2>&1
