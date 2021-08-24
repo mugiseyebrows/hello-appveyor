@@ -1,7 +1,3 @@
-environment:
-  my_variable:
-    secure: tQDHkd0GxoshtqheKEM/ig==
-
 artifacts:
   - path: hello-appveyor.zip
     name: hello-appveyor
@@ -21,3 +17,11 @@ build_script:
   - jom clean > nul 2>&1
   - windeployqt release\hello-appveyor.exe > deploy.log 2>&1
   - 7z a hello-appveyor.zip release > zip.log 2>&1
+
+deploy:
+  description: 'hello-appveyor'
+  provider: GitHub
+  auth_token:
+    secure: gcYWBlGRr48R9W3Snz+xXmLh1TIT/wYLnoYgdaCRlKiWA4SyZkNC3b+GZdIiyCra
+  on:
+    branch: master
