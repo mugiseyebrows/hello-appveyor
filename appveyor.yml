@@ -1,3 +1,5 @@
+version: 1.2.4
+
 artifacts:
   - path: hello-appveyor.zip
     name: hello-appveyor
