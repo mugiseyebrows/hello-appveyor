@@ -10,9 +10,11 @@ branches:
 
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;C:\Python39-x64;C:\Python39-x64\Scripts;%PATH% > nul 2>&1
-  - pip install mugisync pyuv
-  - mugisync --help
+  - rem add python 3.9 to path
+  - set PATH=C:\Python39-x64;C:\Python39-x64\Scripts;%PATH%
+  - rem add qt msvc2017 to path
+  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
+  - audghqfwefqwef
   - qmake > build_qmake.log 2>&1
   - jom release > build_jom.log 2>&1
   - jom clean > nul 2>&1
