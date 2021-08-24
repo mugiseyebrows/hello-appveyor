@@ -9,11 +9,10 @@ branches:
     - master
 
 build_script:
-  - dir C:\Python39-x64
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;C:\Python39-x64;C:\Python39-x64\Scripts;%PATH% > nul 2>&1
   - pip install mugisync
   - mugisync --help
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH% > nul 2>&1
   - qmake > build_qmake.log 2>&1
   - jom release > build_jom.log 2>&1
   - jom clean > nul 2>&1
