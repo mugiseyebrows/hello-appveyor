@@ -4,10 +4,11 @@ branches:
 
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-  - dir C:\Qt\5.14.2\msvc2017_64
+  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;%PATH%
   - where msbuild
   - where qmake
-  - qmake 
-  - jom release
+  - where jom
+  
+
   
   
