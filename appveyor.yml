@@ -1,8 +1,6 @@
-version: 1.3.8
+version: 1.3.9
 
 artifacts:
-  - path: hello-appveyor.zip
-    name: hello-appveyor
   - path: '*.log'
     name: logs
   - path: tests.xml
@@ -31,8 +29,8 @@ test_script:
   - jom release >> ..\build_tests.log 2>&1
   - cd ..
   - echo APPVEYOR_JOB_ID %APPVEYOR_JOB_ID%
-  - tests\release\tests -xunitxml > tests.xml
-  - curl -F data=@tests.xml https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
+  - tests\release\tests -xunitxml > TEST1.xml
+  - curl -F "file=@TEST1.xml" https://ci.appveyor.com/api/testresults/xunit/%APPVEYOR_JOB_ID%
 
 deploy:
   description: 'hello-appveyor'
