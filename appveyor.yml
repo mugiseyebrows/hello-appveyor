@@ -3,6 +3,7 @@ branches:
     - master
 
 build_script:
+  - set
   - where jom
   - where qmake
   - set QTDIR=C:\Qt\5.15.2\msvc2019
