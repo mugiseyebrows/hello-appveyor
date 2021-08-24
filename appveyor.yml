@@ -5,10 +5,13 @@ branches:
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
   - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
-  - echo %CD%
   - qmake
   - jom release
+  - jom clean
+  - windeployqt release\hello-appveyor.exe
   - dir release
+  - 7z a hello-appveyor.zip release
+  - dir %CD%
   
 
   
