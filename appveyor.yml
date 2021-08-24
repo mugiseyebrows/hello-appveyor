@@ -21,6 +21,7 @@ build_script:
   - 7z a hello-appveyor.zip release > zip.log 2>&1
 
 test_script:
+  - Add-AppveyorTest -Name "Test A" -Framework NUnit -Filename a.exe -Outcome Passed -Duration 1000
   - cd tests
   - qmake >> ..\build_tests.log 2>&1
   - jom release >> ..\build_tests.log 2>&1
