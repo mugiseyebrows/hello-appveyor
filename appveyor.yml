@@ -16,9 +16,8 @@ build_script: |
   set PATH=C:\Python39-x64;C:\Python39-x64\Scripts;%PATH%
   rem add qt msvc2017 to path
   set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
-  qmake > build_qmake.log
-  jom release > build_jom.log
-  jom clean
+  qmake
+  nmake release
   windeployqt release\hello-appveyor.exe > deploy.log 2>&1
   7z a hello-appveyor.zip release > zip.log 2>&1
 
