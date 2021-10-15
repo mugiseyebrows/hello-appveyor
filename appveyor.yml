@@ -10,17 +10,17 @@ branches:
   only:
     - master
 
-build_script:
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-  - rem add python 3.9 to path
-  - set PATH=C:\Python39-x64;C:\Python39-x64\Scripts;%PATH%
-  - rem add qt msvc2017 to path
-  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
-  - rem qmake > build_qmake.log 2>&1
-  - rem jom release > build_jom.log 2>&1
-  - rem jom clean > nul 2>&1
-  - rem windeployqt release\hello-appveyor.exe > deploy.log 2>&1
-  - rem 7z a hello-appveyor.zip release > zip.log 2>&1
+build_script: |
+  call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  rem add python 3.9 to path
+  set PATH=C:\Python39-x64;C:\Python39-x64\Scripts;%PATH%
+  rem add qt msvc2017 to path
+  set PATH=C:\Qt\5.14.2\msvc2017_64\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
+  rem qmake > build_qmake.log 2>&1
+  rem jom release > build_jom.log 2>&1
+  rem jom clean > nul 2>&1
+  rem windeployqt release\hello-appveyor.exe > deploy.log 2>&1
+  rem 7z a hello-appveyor.zip release > zip.log 2>&1
 
 test_script:
   - rem appveyor AddTest -Name "Test A" -Framework NUnit -Filename a.exe -Outcome Passed -Duration 1000
